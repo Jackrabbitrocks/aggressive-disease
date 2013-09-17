@@ -8,24 +8,6 @@
     <link href="css/normalize.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="css/jquery-ui.css"><!-- smoothness theme -->
     <link rel="stylesheet" href="css/jqbar.css" />
-    <!-- dependencies -->
-    <script type="text/javascript" src="js/jquery.tools.min.js"></script>
-    <script type="text/javascript" src="js/jquery-ui-1.10.3.custom.min.js"></script>
-    <!-- libraries -->
-    <script type="text/javascript" src="js/jquery.ui.touch-punch.min.js"></script>
-    <script type="text/javascript" src="js/ftscroller.js"></script>
-    <script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
-    <script type="text/javascript" src="js/jquery.easing.min.js"></script>
-    <script src="js/jqbar.js" type="text/javascript"></script>
-    <!-- custom -->
-    <script type="text/javascript" src="js/rabbit.js"></script>
-    <script>
-////    $(function() {
-//      $( "#sortable" ).sortable({ axis: "y" });
-//      $( "#sortable" ).disableSelection();
- // });
-
-</script>
 </head>
 
 <body>
@@ -99,7 +81,7 @@
                     <li>Mammography confirmed the presence  of a suspicious lesion, and excision biopsy was performed </li>
                     <li>Diagnosis:
                         <ul class="em">
-                            <li>Tumor: 5.5-cm IDC, N0. Classified as 		      T2N0M0, AJCC stage IIB </li>
+                            <li>Tumor: 5.5-cm IDC, N0. Classified as              T2N0M0, AJCC stage IIB </li>
                             <li>Endocrine status: ER/PR-negative </li>
                             <li>HER2 status: negative</li>
                         </ul>
@@ -293,7 +275,7 @@
 
             <div class="closeBtn"></div>
             <div id="PI"> 
-            	<img src="img/pdf/Abraxane_PrescribingInformation_Page_01.png"><br>
+                <img src="img/pdf/Abraxane_PrescribingInformation_Page_01.png"><br>
                 <img src="img/pdf/Abraxane_PrescribingInformation_Page_02.png"><br>
                 <img src="img/pdf/Abraxane_PrescribingInformation_Page_03.png"><br>
                 <img src="img/pdf/Abraxane_PrescribingInformation_Page_04.png"><br>
@@ -454,14 +436,14 @@
         </div>
         
         <div class="overlay" id="p5">
-        	<div class="close overlayClose"></div>
+            <div class="close overlayClose"></div>
             <div class="modal case-button" id="top" patient="1"></div>
             
             
         </div>
         
         <div class="overlay" id="p6">
-        	<div class="close overlayClose"></div>
+            <div class="close overlayClose"></div>
             <div class="modal case-button" id="top" patient="1"></div>
             <div class="modal case-button" id="middle" patient="2"></div>
             
@@ -738,12 +720,23 @@
 
 <!-- RISK ASSESSMENT END --> 
 </div>
-<script type="text/javascript" src="js/retina.js"></script>
+ <!-- dependencies -->
+    <script type="text/javascript" src="js/jquery.tools.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.10.3.custom.min.js"></script>
+    <!-- libraries -->
+    <script type="text/javascript" src="js/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="js/ftscroller.js"></script>
+    <script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.min.js"></script>
+    <script src="js/jqbar.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/rabbit.js"></script>
+    <!-- custom -->
 
+<script type="text/javascript" src="js/retina.js"></script>
 <script type="text/javascript">
 $(function() {
-			// positions for each overlay
-			//right side 'patient' pop ups
+            // positions for each overlay
+            //right side 'patient' pop ups
             var positions = [
             [215, 329],
             [290, 329],
@@ -753,7 +746,7 @@ $(function() {
             [590, 329]
             
             ];
-			//left side 'info' pop ups
+            //left side 'info' pop ups
             var info_positions = [
             [60, 15],
             [60, 15],
@@ -763,72 +756,73 @@ $(function() {
             [60, 15]
             ];
             
-				// setup triggers as IMG tags for the 'patient' pop ups
-				$("section[rel]").each(function(i) {
+                // setup triggers as IMG tags for the 'patient' pop ups
+                $("section[rel]").each(function(i) {
 
-					$(this).overlay({
+                    $(this).overlay({
 
-						// common configuration for each overlay
-						// only one modal at any time
-						// click off of modal to close
-						// also will close by hitting escape by default
-						oneInstance: true,
-						closeOnClick: true,
+                        // common configuration for each overlay
+                        // only one modal at any time
+                        // click off of modal to close
+                        // also will close by hitting escape by default
+                        oneInstance: true,
+                        closeOnClick: true,
 
-						// setup custom finish position
-						top: positions[i][0],
-						left: positions[i][1],
-						
-						// mask layer that allows for clicking off to close
-						// no color 
-						mask: {
-							maskId: "defaultMask" ,
-							color: null ,
-							zIndex: 9001
-						},
-						// pop out overlay from click point
-						effect: "apple",
-						zIndex: 9100
-					});
-				});
-				// setup triggers of the 'info' pop ups
-				$("section.factors span[rel]").each(function(i) {
+                        // setup custom finish position
+                        top: positions[i][0],
+                        left: positions[i][1],
+                        
+                        // mask layer that allows for clicking off to close
+                        // no color 
+                        mask: {
+                            maskId: "defaultMask" ,
+                            color: null ,
+                            zIndex: 9001
+                        },
+                        // pop out overlay from click point
+                        effect: "apple",
+                        zIndex: 9100
+                    });
+                });
+                // setup triggers of the 'info' pop ups
+                $("section.factors span[rel]").each(function(i) {
 
-					$(this).overlay({
+                    $(this).overlay({
 
-						// common configuration for each overlay
-						oneInstance: true,
-						closeOnClick: true,
+                        // common configuration for each overlay
+                        oneInstance: true,
+                        closeOnClick: true,
 
-						// setup custom finish position
-						top: info_positions[i][0],
-						left: info_positions[i][1],
-						
-						// mask layer that allows for clicking off to close
-						// no color
-						mask: {
-							maskId: "defaultMask" ,
-							color: null ,
-							zIndex: 9000
-						},
+                        // setup custom finish position
+                        top: info_positions[i][0],
+                        left: info_positions[i][1],
+                        
+                        // mask layer that allows for clicking off to close
+                        // no color
+                        mask: {
+                            maskId: "defaultMask" ,
+                            color: null ,
+                            zIndex: 9000
+                        },
                         onLoad: function(){
                             triggerRef = this.getTrigger();//IDENTIFY THE TRIGGERING OBJECT
                             startChart(triggerRef);//SEND THE OBJECT TO THE FUCNTION THAT WILL TRIGGER THE CHART ANIMATION
                         },
-						// pop out overlay from click point
-						effect: "apple",
-						zIndex: 9100
-					});
-				});
-			});
+                        // pop out overlay from click point
+                        effect: "apple",
+                        zIndex: 9100
+                    });
+                });
+            });
 /** choices section - styling of radio button elements as boolean tabs **/
 $( "#radio" ).buttonset();
 
 
-			//prevent pulling iPad browser window with swipes
-			document.body.addEventListener('touchmove', function(event) {
-				event.preventDefault();
-			}, false); 
+            //prevent pulling iPad browser window with swipes
+            document.body.addEventListener('touchmove', function(event) {
+                event.preventDefault();
+            }, false); 
+
             function startChart(aThing){// FUNCTION THAT STARTS THE CHART ANIMATION
                 relString = $(aThing).attr('rel');//GRAB THE IDENTIFYING INFORMATION FROM THE REL ATTRIBUTE
                 relString = relString.replace(/\D/g,'');//STRIP THE CHARACTERS COMMON TO ALL THE TRIGGER OBJECTS USING REGEX
