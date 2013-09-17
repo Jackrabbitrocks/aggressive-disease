@@ -1,0 +1,72 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.isiContainer
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-image:url(../img/isiBG.png);
+	background-repeat: no-repeat;
+	z-index: 1000;
+	display: none;
+}
+#ISI 
+{
+	position: absolute;
+	left: 60px;
+	top: 200px;
+	width:846px;
+	height: 541px;
+	padding: 0 20px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 15px;
+}
+.header
+{
+	font-size: 20px;
+	margin: 15px 0;
+}
+.subheader
+{
+	margin: 10px 0;
+}
+#ISI ul
+{
+	margin-top: 0;
+	margin-left: -20px;
+}
+#ISI li 
+{
+	margin-bottom: 15px;
+}
+.warning
+{
+	text-align: center;
+	width: 100%;
+	text-decoration: underline;
+}
+.blackBox
+{
+	border:black medium solid;
+	margin-bottom: 20px;
+	padding: 10px;
+}
+.closeBtn
+{
+	position: absolute;
+	width: 135px;
+	height: 52px;
+	right: 0;
+	top: 65px;
+}
+.piBtn
+{
+	position: absolute;
+	width: 285px;
+	height: 52px;
+	top: 65px;
+	left: 600px;
+}

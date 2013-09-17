@@ -1,0 +1,955 @@
+@charset "UTF-8";
+@import "fonts.css";
+/*@import "elements.less";*/
+@font-face {
+    font-family: 'apex';
+    src: url('font/apexsansmediumt-webfont.eot');
+    src: url('font/apexsansmediumt-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/apexsansmediumt-webfont.woff') format('woff'),
+         url('font/apexsansmediumt-webfont.ttf') format('truetype'),
+         url('font/apexsansmediumt-webfont.svg#apexsansmediumtmedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+// retina.less
+// A helper mixin for applying high-resolution background images (http://www.retinajs.com)
+
+.at2x(@path, @w: auto, @h: auto) {
+  background-image: url(@path);
+  @at2x_path: ~`"@{path}".split('.').slice(0, "@{path}".split('.').length - 1).join(".") + "@2x" + "." + "@{path}".split('.')["@{path}".split('.').length - 1]`;
+
+  @media all and (-webkit-min-device-pixel-ratio : 1.5) {
+    background-image: url(@at2x_path);
+    background-size: @w @h;
+  }  
+}
+body {
+	height: 768px;
+	/*height: 768px;*/
+	width: 1024px;
+	/*background-image:url(../img/section1BG.jpg);*/
+	background-size: 1024px 768px;
+	background-repeat: no-repeat;
+	font-family: 'apex', Arial, sans-serif;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+em 
+{
+	font-family: 'HelveticaCondensedOblique';
+}
+.superscript
+{
+	vertical-align:super;
+	font-size:0.5em;
+	line-height: 0;
+}
+.nowrap
+{
+	white-space: nowrap;
+}
+.mainContainer
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 1024px;
+	height: 768px;
+	overflow: hidden;
+}
+/*MODAL CONTAINER*/
+
+
+.modalContainer
+{
+	position: absolute;
+	// left: 328px;
+	left: 1024px;
+	top: 58px;
+	font-size:18.75px;
+	color: #555;
+	width: 694px;
+	height: 464px;
+	.at2x('../img/modalBG.png', 695px, 464px);
+	z-index: 104;
+	opacity: 1;
+}
+.modalContainer > div
+{
+	display: none;
+	position: absolute;
+	top: 50px;
+	left: 65px;
+	width: 588px;
+	height: 400px;
+}
+.modalContainer ul
+{
+	margin-top: 5px;
+}
+.modalContainer div > ul 
+{
+	margin-bottom: 5px;
+}
+.modalContainer .s1p1 
+{
+	display: block;
+}
+.dkBlue
+{
+	color: #0068ac;
+	font-size: 22.5px;
+}
+.blue
+{
+	color: #60afdd;
+	font-size: 22.5px;
+}
+.footnote
+{
+	font-size: 12.5px;
+	margin-top: 20px;
+}
+.haterOffset
+{
+	position: absolute;
+	top: 275px;
+}
+.em li
+{
+	list-style: none;
+	text-indent: -55px;
+	margin-left: 30px;
+}
+.em li:before
+{
+    content: '\2014';
+    margin: 0 1em;
+}
+.pageModal
+{
+	position: absolute;
+	left: 350px;
+	top: 285px;
+	z-index: 101;
+	width: 675px;
+	height: 235px;
+}
+// @-webkit-keyframes modalIn
+// {
+// 	0%
+// 	{
+// 		left:1024px;
+// 	}
+// 	100%
+// 	{
+// 		left:328px;
+// 	}
+// }
+// @-webkit-keyframes modalOut
+// {
+// 	0%
+// 	{
+// 		-webkit-opacity: 1;
+// 		opacity: 1;
+// 	}
+// 	99%
+// 	{
+// 		-webkit-opacity: 0;
+// 		opacity: 0;
+// 	}
+// 	100%
+// 	{
+// 		left: 1024px;
+// 	}
+// }
+// .modalStart
+// {
+// 	-webkit-animation: modalIn 1s;
+// 	-webkit-animation-fill-mode: forwards;
+// }
+// .modalEnd
+// {
+// 	-webkit-animation: modalOut 0.5s;
+// 	-webkit-animation-fill-mode: forwards;
+// }
+.modalStart
+{
+	left: 328px;
+	-webkit-transition: all 1s ease;
+}
+.modalEnd
+{
+	-webkit-opacity: 0;
+	opacity: 0;
+	-webkit-transition: all 1s ease;
+}
+
+/*MODAL CONTAINER*/
+
+.modalBG
+{
+	width: 100%;
+	height: 520px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+	z-index: 99;
+}
+#modalCloseBtn
+{
+	position: absolute;
+	top: 0;
+	left: 480px;
+	height: 200px;
+	width: 200px;
+	display: block;
+	z-index: 99;
+}
+.continueBtn
+{
+	position: absolute;
+	top: 65px;
+	right: 0;
+	height: 50px;
+	width: 250px;
+	z-index: 80;
+}
+.backgroundDIV
+{
+	// display: none;
+	width: 1024px;
+	height: 768px;
+	.at2x('../img/section1BG.jpg', 1024px, 768px);
+}
+.hidden
+{
+	display: none;
+}
+.timeline-arrow1
+{
+	width: 1725px;
+	height: 323px;
+	.at2x('../img/timeline1.png', 925px, 172px);
+	background-repeat: no-repeat;
+	background-position: 41px 0;
+}
+.timeline-arrow2
+{
+	width: 1925px;
+	height: 303px;
+	.at2x('../img/timeline2.png', 1432px, 151px);
+	background-position: 41px 10px;
+	background-repeat: no-repeat;
+}
+.timeline-arrow3
+{
+	width: 1925px;
+	height: 303px;
+	.at2x('../img/timeline3.png', 1432px, 151px);
+	background-position: 41px 10px;
+	background-repeat: no-repeat;
+}
+#timeline, #content
+{
+	position: absolute;
+	top:540px;
+	left: 20px;
+	width: 1000px;
+	overflow: hidden;
+	z-index: 99;
+}
+.page-content
+{
+	position: absolute;
+	left:380px;
+	top: 295px;
+	width: 675px;// 618 × 212
+	height: 235px;
+	z-index: 50;
+	.at2x('../img/s1p1.png', 618px, 212px);
+	background-repeat: no-repeat;
+}
+.swipeHome
+{
+	position: absolute;
+	top: 65px;
+	left: 0;
+	height: 50px;
+	width: 250px;
+	z-index: 80;
+}
+.splash
+{
+	position: relative;
+	z-index: 105;
+	.at2x('../img/landing.jpg', 1024px, 768px);
+	// background-image: url(../img/landing.jpg);
+	background-repeat: no-repeat;
+	height: 768px;
+	width: 1024px;
+}
+.splash-button
+{
+	position: absolute;
+	top: 150px;
+	height: 500px;
+	width: 300px;
+	z-index: 105;
+	line-height: 500px;
+	text-align: center;
+}
+.fpo
+{
+	color: purple;
+	font-size: 48px;
+	font-family: sans-serif;
+	font-weight: bold;
+	
+}
+.fpo-scan
+{
+	position: absolute;
+	top: 220px;
+	left: 100px;
+}
+.fpo-timeline
+{
+	position: absolute;
+	top: 520px;
+	left: 500px;
+	z-index: 100;
+}
+.patient1-button
+{
+	left: 0;
+}
+.patient2-button
+{
+	left: 350px;
+}
+.patient3-button
+{
+	left: 700px;
+}
+/*.jobCode
+{
+	position: absolute;
+	bottom: 7px;
+	right: 40px;
+	font-size: 10px;
+	color: grey;
+}*/
+
+/************************timeline hotspots********************************/
+.timeHot
+{
+	position: absolute;
+	z-index: 999;
+	height: 100px;
+	width: 50px;
+}
+.s1p1Hotspot, .s2p1Hotspot, .s3p1Hotspot
+{
+	left: 130px;
+}
+.s1p2Hotspot
+{
+	left: 200px;
+}
+.s1p3Hotspot
+{
+	left: 510px;
+}
+
+.s2p2Hotspot
+{
+	left: 350px;
+}
+.s2p3Hotspot
+{
+	left: 775px;
+}
+.s2p4Hotspot
+{
+	left: 970px;
+}
+.s3p2Hotspot
+{
+	left: 240px;
+}
+.s3p3Hotspot
+{
+	left: 790px;
+}
+.s3p4Hotspot
+{
+	left: 940px;
+}
+/************************timeline hotspots********************************/
+
+// ISI STYLES 
+.isiContainer
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	.at2x('../img/isiBG.png', 1024px, 768px);
+	background-repeat: no-repeat;
+	z-index: 1000;
+	display: none;
+}
+#ISI 
+{
+	position: absolute;
+	left: 60px;
+	top: 200px;
+	width:896px;
+	height: 541px;
+	padding: 0 20px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 15px;
+}
+.isiInner
+{
+	padding-right: 20px;
+}
+.header
+{
+	font-size: 20px;
+	margin: 15px 0;
+}
+.subheader
+{
+	margin: 10px 0;
+}
+#ISI ul
+{
+	margin-top: 0;
+	margin-left: -20px;
+}
+#ISI li 
+{
+	margin-bottom: 15px;
+}
+.warning
+{
+	text-align: center;
+	width: 100%;
+	text-decoration: underline;
+}
+.blackBox
+{
+	border:black medium solid;
+	margin-bottom: 20px;
+	padding: 10px;
+}
+.closeBtn
+{
+	position: absolute;
+	width: 135px;
+	height: 52px;
+	right: 0;
+	top: 65px;
+}
+.piBtn
+{
+	position: absolute;
+	width: 285px;
+	height: 52px;
+	top: 65px;
+	left: 600px;
+}
+// ISI STYLES END
+// PI STYLES 
+.piContainer
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	.at2x('../img/piBG.png', 1024px, 768px);
+	background-repeat: no-repeat;
+	z-index: 1000;
+	display: none;
+}
+#PI 
+{
+	position: absolute;
+	left: 20px;
+	top: 200px;
+	width:1000px;
+	height: 541px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 15px;
+}
+.closeBtn
+{
+	position: absolute;
+	width: 135px;
+	height: 52px;
+	right: 0;
+	top: 65px;
+}
+// PI STYLE END
+/******************** RISK ASSESSMENT **************************/
+
+/******************** disease factor chart ********************/
+
+#disease_chart {
+	width: 671px;
+	float: left;/*border: 1px solid black*/
+}
+#disease_chart .question {
+	margin-bottom: 66px;
+	display: block;
+}
+#disease_chart .row1, 
+#disease_chart .row2, 
+#disease_chart .row3, 
+#disease_chart .row4, 
+#disease_chart .row5,
+#disease_chart .row6  {
+	margin: 16px 0;
+}
+
+#disease_chart .row1 .factors, #disease_chart .row2 .factors, #disease_chart .row3 .factors, #disease_chart .row4 .factors, #disease_chart .row5 .factors, #disease_chart .row6 .factors {
+	background: url(../img/factor_info.gif) no-repeat 0 2px;
+	position: relative;
+	width: 244px;
+	height: 39px;
+	display: block;
+	/*padding-left: 40px;*/
+	float: left;
+	cursor: pointer;
+}
+.factors span {
+	width: 100%;
+	height: 39px;
+	position: absolute;
+	padding-top: 15px;
+	text-align: left;
+	padding-left: 40px;
+}
+#disease_chart .row1 .choices, #disease_chart .row2 .choices, #disease_chart .row3 .choices, #disease_chart .row4 .choices, #disease_chart .row5 .choices, #disease_chart .row6 .choices {
+	position: relative;
+	width: 330px;
+	height: 39px;
+	display: block;
+	float: left;
+}
+/********* disease factors options **********/
+.choices ul {
+	width: 100%;
+	margin-top: 0;
+}
+.choices ul li {
+	text-align: center;
+	display: inline-block;
+	width: 160px;
+	height: 39px;
+	border: 0px solid #bebebe;
+	color: #bebebe;
+	position: relative;
+	padding-top: 9px;
+	margin-top: 4px;
+	cursor: pointer;
+}
+/******* touch sort list *********/
+
+#play {
+	padding: 0 10px 10px;
+	margin: 0 0 0 671px;
+	position: absolute;
+	overflow: hidden;
+	background:url(../img/play_bg.gif) repeat-y 0px 1px;
+	border-top: 2px solid #d9d9d9;
+	border-bottom: 2px solid #d9d9d9;
+	border-left: 2px solid #d9d9d9;
+	float: left;
+	color: #939598;
+	max-width: 260px;
+}
+#play ul {
+	margin: 10px 10px 50px 30px;
+	width: 181px;
+	float: left;
+	padding: 0px;
+	position: relative;
+	font: 12px/1.4 'PT Sans', 'DejaVu Sans', 'Bitstream Vera Sans', Verdana, sans-serif;
+	line-height: 52px;
+	text-shadow: 1px 1px 1px #FFF;
+}
+#play ul li {
+	background-image: none;
+	list-style-type: none;
+	padding: 0;
+	margin: 9px 7px;
+	cursor: move;
+	position: relative;
+}
+#play ul li.list1 {
+	background: url(../img/play_list.jpg);
+	width: 223px;
+	height: 51px;
+	display: block;
+	text-align: center;
+	color: #002b7f;
+}
+#play ul li.list2 {
+	background-color: rgb(237, 255, 159);
+	border: 1px solid rgb(205, 205, 205);
+}
+#sortable {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: 60%;
+}
+#sortable li {
+	margin: 0 3px 3px 3px;
+	padding: 0.4em;
+	padding-left: 1.5em;
+	font-size: 1.4em;
+	height: 18px;
+}
+#sortable li span {
+	position: absolute;
+	margin-left: -1.3em;
+}
+.sort_directions {
+	position: relative;
+	margin: 15px 0 35px 22px;
+	width: 238px;
+	display: block;
+	font: 14px/14px apex,'PT Sans', 'DejaVu Sans', 'Bitstream Vera Sans', Verdana, sans-serif;
+	color: #313233;
+}
+/******* patient overlay trigger style ********/
+img.links {
+	cursor: pointer;
+}
+.modal_copy {
+	margin: 20px 40px 10px 50px;
+}
+.overlay {
+	width: 334px;
+	position: absolute;
+	/* must be initially hidden */
+	display: none;
+	z-index: 10000;
+	top: 93px;
+	left: 177px;
+	background: url(../img/pop-up1.png) 0 0;
+	
+}
+/* close button positioned on upper right corner */
+.simple_overlay .close {
+	background-image: url(/media/img/overlay/close.png);
+	position: absolute;
+	right: -15px;
+	top: -15px;
+	cursor: pointer;
+	height: 35px;
+	width: 35px;
+}
+/* styling for elements inside overlay */
+.details {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	font-size: 11px;
+	color: #fff;
+	width: 150px;
+}
+.details h3 {
+	color: #aba;
+	font-size: 15px;
+}
+
+#exposeMask {
+	background: rgba(119, 136, 153, 0.0976563)
+}
+
+
+/*********** INFO MODALS **************/
+/* styling for pane in overlay */
+.info_modal {
+	width: 991px;
+	height: 671px;
+	position: absolute;
+	/* must be initially hidden*/ 
+    display: none;
+	z-index: 10000;
+	top: 61px;
+	left: 17px;
+	// background: url(../img/info_modalBG.png) no-repeat 0 0;
+	font-family: 'HelveticaRoman', Helvetica, Arial, sans-serif;
+	color: #565759;
+	-webkit-box-shadow: -1px -1px 25px rgba(50, 50, 50, 0.25);
+}
+.top_row
+{
+	height: 540px;
+	width: 991px;
+}
+.left_col
+{
+	width: 342px;
+	height: 540px;
+	float: left;
+}
+.right_col
+{
+	width: 647px;
+	height: 540px;
+	background-color: #f1f3f4;
+	float: right;
+}
+.info_modal h1
+{
+	font-family: HelveticaBold, Helvetica, Arial, sans-serif;
+	font-size: 24px;
+	color: #002b7f;
+	padding-bottom: 24px;
+	margin: 0;
+}
+.info_modal p:first-child
+{
+	margin-top: 0;
+}
+.info_modal .footnote
+{
+	font-size: 11px;
+	font-family: 'HelveticaCondensed', Helvetica, Arial, sans-serif;
+}
+.info_modal .footnote ol
+{
+	padding-left: 1em;
+	text-indent: -1em;
+	list-style-type: none;
+}
+.footnote li span
+{
+	font-family: 'HelveticaBoldCondensed';
+}
+.info_modal .copy
+{
+	padding: 66px 0 0 38px;
+	font-size: 15px;
+	position: relative;
+	width: 285px;
+}
+
+.info_modal .closeBtn
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 60px;
+	width: 60px;
+}
+// POP 1 STYLES
+#pop1 .footnote
+{
+	margin-top: 73px;
+}
+#pop1, #pop2, #pop6, #pop4, #pop5
+{
+	display: none;
+}
+// POP 2 STYLES 
+
+#pop2 .footnote
+{
+	margin-top: 280px;
+}
+
+// POP 3 STYLE 
+.info_modal .copy ul
+{
+	padding: 0;
+	margin-left: 1em;
+	text-indent: -1em;
+	margin-top: 0;
+	list-style-type: none;
+}
+#pop3 p 
+{
+	margin-bottom: 10px;
+}
+#pop3 .footnote
+{
+	margin-top: 120px;
+}
+#pop3 h1
+{
+	padding-bottom: 15px;
+}
+/*POP 4 STYLE*/
+#pop4 .footnote
+{
+	margin-top: 300px;
+}
+/*POP 5 STYLE*/
+#pop5 h1
+{
+	padding-bottom: 20px;
+}
+#pop5 .footnote
+{
+	margin-top: 80px;
+}
+/*POP 6 STYLE*/
+#pop6 .copy
+{
+	padding-top: 20px;
+}
+#pop6 h1
+{
+	padding-bottom: 10px;
+}
+#pop6 p 
+{
+	margin-bottom: 5px;
+}
+#pop6 .footnote
+{
+	margin-top: 10px;
+}
+#pop6 ol 
+{
+	margin-top: 5px;
+}
+
+// MODAL FOOTER
+.info_modal footer
+{
+	background: -webkit-linear-gradient(top, rgba(255,255,255,1) 66%,rgba(230,230,230,1) 99%);
+	height: 131px;
+	width: 991px;
+	border-top-width: 2px;
+	border-top-style: solid;
+	border-top-color: #bcbcbc;
+	position: absolute;
+	bottom: 0;
+}
+footer > div
+{
+	width: 33%;
+	height: 131px;
+	padding: 34px 0 32px 29px;
+	position: absolute;
+}
+footer > div > div
+{
+	padding-top:13px;
+}
+footer img 
+{
+	float: left;
+	padding-right: 10px;
+}
+.patient2-footer
+{
+	left: 300px;
+}
+.patient3-footer
+{
+	left: 645px;
+}
+// MODAL FOOTER END
+
+.info_charts {
+	background: #ccc;
+	border: 1px solid #666;
+	width: 900px;
+	height: 300px;	
+	margin: 20px 40px 10px 50px;
+}
+.patient_links ul {
+	width: 100%;
+	list-style-type:none;
+	margin:20px
+		
+}
+.patient_links ul li:nth-child(1) {
+	float: left;
+	width: 18%;
+	padding: 20px;	
+}
+.patient_links ul li:nth-child(2) {
+	float: left;
+	width: 33%;
+	padding: 20px;	
+}
+.patient_links ul li:nth-child(3) {
+	float: left;
+	width: 28%;
+	padding: 20px;	
+}
+.patient-button-header {
+	color: #808080;
+	font-weight: bold;
+	font: 24px/1 apex, Verdana, sans-serif;	
+}
+.patient-button-subheader {
+	color: #303030;
+	font-weight: bold;
+	font: 18px/1.4 apex, Verdana, sans-serif;	
+	display: block;
+}
+
+/************* choices stylings ***********/
+.choices {
+	text-align: center;	
+}
+.ui-state-default {
+	background:url(../img/choice_bg.png) no-repeat 0 0 !important;
+	color: #ffffff !important;
+	border: none !important;
+	
+}
+.ui-state-active {
+	background:url(../img/choice_bg.png) no-repeat 0% 100% !important;
+	color: #ffffff !important;
+	border: none !important;
+}
+.ui-corner-right {
+	border-top-right-radius: 0px !important;
+	border-bottom-right-radius: 0px !important;	
+}
+
+.ui-corner-left {
+	border-top-left-radius: 0px !important;
+	border-bottom-left-radius: 0px !important;	
+}
+
+.ui-buttonset .ui-button {
+	margin-right: .1em !important;	
+}
+
+.ui-button {
+	width: 160px !important;
+	height: 39px !important;	
+}
+
+.ui-button-text-only .ui-button-text {
+	font-size: 14px !important;
+	font-family: apex, Arial, sans-serif !important;
+	padding: .75em .05em !important;
+	line-height: 28px; /* centers text vertically */
+	margin-left: 40px;
+}
+.close {
+	width: 45px;
+	height: 45px;
+	display: block;
+	text-indent: -9999px;
+	cursor: pointer;
+	float: right;
+}

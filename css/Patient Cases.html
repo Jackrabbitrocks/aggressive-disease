@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html><head><style type="text/css">.ftscroller_scrolling { user-select: none; cursor: all-scroll !important }
+.ftscroller_container { overflow: hidden; position: relative; max-height: 100%; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); -ms-touch-action: none }
+.ftscroller_hwaccelerated { transform: translateZ(0); }
+.ftscroller_x, .ftscroller_y { position: relative; min-width: 100%; min-height: 100%; overflow: hidden }
+.ftscroller_x { display: inline-block }
+.ftscroller_scrollbar { pointer-events: none; position: absolute; width: 5px; height: 5px; border: 1px solid rgba(255, 255, 255, 0.15); -webkit-border-radius: 3px; border-radius: 6px; opacity: 0; transition: opacity 350ms; z-index: 10 }
+.ftscroller_scrollbarx { bottom: 2px; left: 2px }
+.ftscroller_scrollbary { right: 2px; top: 2px }
+.ftscroller_scrollbarinner { height: 100%; background: rgba(0,0,0,0.5); -webkit-border-radius: 2px; border-radius: 4px / 6px }
+.ftscroller_scrolling .ftscroller_scrollbar { opacity: 1; transition: none; -o-transition: all 0 none }
+.ftscroller_scrolling .ftscroller_container .ftscroller_scrollbar { opacity: 0 }</style>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Patient Cases</title>
+    <link href="Patient%20Cases_files/style.css" rel="stylesheet" type="text/css">
+    <link href="Patient%20Cases_files/normalize.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="Patient%20Cases_files/jquery-ui.css"><!-- smoothness theme -->
+    <link rel="stylesheet" href="Patient%20Cases_files/jqbar.css">
+    <!-- dependencies -->
+    <script type="text/javascript" src="Patient%20Cases_files/jquery_002.js"></script>
+    <script type="text/javascript" src="Patient%20Cases_files/jquery-ui-1.js"></script>
+    <!-- libraries -->
+    <script type="text/javascript" src="Patient%20Cases_files/jquery_003.js"></script>
+    <script type="text/javascript" src="Patient%20Cases_files/ftscroller.js"></script>
+    <script type="text/javascript" src="Patient%20Cases_files/jquery.js"></script>
+    <script type="text/javascript" src="Patient%20Cases_files/jquery_004.js"></script>
+    <script src="Patient%20Cases_files/jqbar.js" type="text/javascript"></script>
+    <!-- custom -->
+    <script type="text/javascript" src="Patient%20Cases_files/rabbit.js"></script>
+    <script>
+////    $(function() {
+//      $( "#sortable" ).sortable({ axis: "y" });
+//      $( "#sortable" ).disableSelection();
+ // });
+    
+    </script>
+</head>
+
+<body>
+    <div class="mainContainer">
+        <div style="display: none;" class="splash">
+            <div class="patient1-button splash-button" patient="1"></div>
+            <div class="patient2-button splash-button" patient="2"></div>
+            <div class="patient3-button splash-button" patient="3"></div>
+            <div class="patient4-button splash-button" patient="4"></div>
+        </div>
+        <div class="swipeHome"></div>
+        <div class="continueBtn"></div>
+        <div style="background-image: url(&quot;img/s4p1.png&quot;); display: none;" class="page-content"></div>
+        <div id="timeline" class="scrollable"><div style="display: none;" class="ftscroller_container"><div style="transform: translate3d(0px, 0px, 0px);" class="ftscroller_x ftscroller_hwaccelerated">
+            <div style="display: block;" class="timeHot s1p1Hotspot timeline1Hotspot" timelineposition="0"></div>
+            <div style="display: block;" class="timeHot s1p2Hotspot timeline1Hotspot" timelineposition="97"></div>
+            <div style="display: block;" class="timeHot s1p3Hotspot timeline1Hotspot" timelineposition="378"></div>
+            <div style="display: none;" class="timeHot s2p1Hotspot timeline2Hotspot" timelineposition="0"></div>
+            <div style="display: none;" class="timeHot s2p2Hotspot timeline2Hotspot" timelineposition="250"></div>
+            <div style="display: none;" class="timeHot s2p3Hotspot timeline2Hotspot" timelineposition="649"></div>
+            <div style="display: none;" class="timeHot s2p4Hotspot timeline2Hotspot" timelineposition="929"></div>
+            <div style="display: none;" class="timeHot s3p1Hotspot timeline3Hotspot" timelineposition="0"></div>
+            <div style="display: none;" class="timeHot s3p2Hotspot timeline3Hotspot" timelineposition="150"></div>
+            <div style="display: none;" class="timeHot s3p3Hotspot timeline3Hotspot" timelineposition="697"></div>
+            <div style="display: none;" class="timeHot s3p4Hotspot timeline3Hotspot" timelineposition="835"></div>
+            <div class="timeline-arrow1" style="display: none; width: 1720px;" id="timeline-arrow"></div>
+        </div></div></div>
+        <div style="background-image: url(&quot;img/section4BG.jpg&quot;);" class="backgroundDIV"></div>
+        <img src="Patient%20Cases_files/section2BG.jpg" class="hidden"> <img src="Patient%20Cases_files/section3BG.jpg" class="hidden"> <img src="Patient%20Cases_files/section4BG.jpg" class="hidden"> <img src="Patient%20Cases_files/s1p1.png" class="hidden"> <img src="Patient%20Cases_files/s1p2.png" class="hidden"> <img src="Patient%20Cases_files/s1p3.png" class="hidden"> <img src="Patient%20Cases_files/s2p1.png" class="hidden"> <img src="Patient%20Cases_files/s2p2.png" class="hidden"> <img src="Patient%20Cases_files/s2p3.png" class="hidden"> <img src="Patient%20Cases_files/s2p4.png" class="hidden"> <img src="Patient%20Cases_files/s3p1.png" class="hidden"> <img src="Patient%20Cases_files/s3p2.png" class="hidden"> <img src="Patient%20Cases_files/s3p3.png" class="hidden"> <img src="Patient%20Cases_files/s3p4.png" class="hidden"> 
+
+        <!-- MODAL CODAL -->
+        <div class="modalBG"></div>
+        <div style="display: none;" class="pageModal"></div>
+        <div class="modalContainer">
+            <div style="display: none;" id="modalCloseBtn"></div>
+            <div class="s1p1"><span class="dkBlue">Initial diagnosis: </span><br>
+                <span class="blue">Stage IIB tumor identified in a routine mammogram</span>
+                <ul>
+                    <li>Mass identified in a routine mammogram, and excision biopsy&nbsp;performed</li>
+                    <li>Diagnosis:
+                        <ul class="em">
+                            <li>Tumor: 3-cm IDC, 6/19 LN-positive. Classified as T2N2M0, AJCC stage IIIA </li>
+                            <li>Endocrine status: ER/PR-negative</li>
+                            <li>HER2 status: negative</li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="footnote">AC=doxorubicin and 
+cyclophosphamide; AD=axillary dissection; AJCC=American Joint Committee 
+on Cancer; ER=estrogen receptor; HER2=human epidermal growth factor 
+receptor 2; IDC=invasive ductal carcinoma; LN=lymph node; 
+mets=metastases; MRM=modified radical mastectomy; PD=progressive 
+disease; PR=progesterone receptor; XRT=external radiation therapy.</div>
+            </div>
+            <div style="display: none;" class="s1p2"><span class="blue">Undergoes surgery and adjuvant treatment</span>
+                <ul>
+                    <li> Left MRM and AD performed</li>
+                    <li>Adjuvant therapy (AC-based chemotherapy) followed by XRT to the left chest wall </li>
+                </ul>
+                <div class="footnote haterOffset">AC=doxorubicin and 
+cyclophosphamide; AD=axillary dissection; mets=metastases; MRM=modified 
+radical mastectomy; PD=progressive disease; XRT=external  radiation 
+therapy.</div>
+            </div>
+            <div style="display: none;" class="s1p3"><span class="blue">Metastatic disease relapse</span>
+                <ul>
+                    <li>4 months after adjuvant therapy, the patient 
+developed pain in her lower back and legs; multiple lesions in hip and 
+femur were detected on a bone scan </li>
+                    <li> CT of chest, abdomen, and pelvis revealed 1 lung lesion (1 cm) </li>
+                    <li> MRI showed no epidural involvement; received XRT and bone-modifying agent </li>
+                    <li>Otherwise the patient is asymptomatic and takes ibuprofen for back pain </li>
+                </ul>
+                <div class="footnote">AC=doxorubicin and 
+cyclophosphamide; AD=axillary dissection; CT=computed tomography; 
+mets=metastases; MRI=magnetic resonance imaging; MRM=modified radical 
+mastectomy; PD=progressive disease; XRT=external radiation therapy.</div>
+            </div>
+            <div style="display: none;" class="s2p1"><span class="dkBlue">Initial diagnosis:</span><br>
+                <span class="blue">Stage IIB tumor detected in self-examination</span>
+                <ul>
+                    <li>The patient detected a grape-size, movable, nontender mass in her right breast that gradually enlarged over a 3-month period </li>
+                    <li>Patient went to the doctor after tenderness developed in her breast</li>
+                    <li>Mammography confirmed the presence  of a suspicious lesion, and excision biopsy was performed </li>
+                    <li>Diagnosis:
+                        <ul class="em">
+                            <li>Tumor: 5.5-cm IDC, N0. Classified as 		      T2N0M0, AJCC stage IIB </li>
+                            <li>Endocrine status: ER/PR-negative </li>
+                            <li>HER2 status: negative</li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="footnote" style="margin-top:0;">AJCC=American
+ Joint Committee on Cancer; ER=estrogen receptor; HER2=human epidermal  
+growth factor receptor 2; IDC=invasive ductal carcinoma; 
+mets=metastases; PD=progressive disease;  PR=progesterone receptor; 
+XRT=external radiation therapy.</div>
+            </div>
+            <div style="display: none;" class="s2p2"><span class="blue">Declines standard treatment for locally advanced disease</span><br>
+                <ul>
+                    <li>Originally diagnosed 2 years ago with resectable disease</li>
+                    <li>The patient refused standard treatment and sought alternative therapy </li>
+                </ul>
+                <div class="footnote haterOffset">mets=metastases; PD=progressive disease; XRT=external radiation therapy.</div>
+            </div>
+            <div style="display: none;" class="s2p3"><span class="blue">Untreated disease and metastatic progression</span><br>
+                <ul>
+                    <li>Admitted to emergency room 10 months ago with back pain and inability to walk </li>
+                    <li>Patient assessed as ECOG PS 2 </li>
+                    <li>CT scan of chest/abdomen and bone scans found liver and bone metastases </li>
+                    <li>Regained ability to walk after acute steroid therapy and XRT to the lumbar spine </li>
+                </ul>
+                <div class="footnote haterOffset">CT=computed 
+tomography; ECOG PS=Eastern Cooperative Oncology Group performance 
+status; mets=metastases; PD=progressive disease; XRT=external radiation 
+therapy. </div>
+            </div>
+            <div style="display: none;" class="s2p4"><span class="blue">Combination chemotherapy to address residual&nbsp;metastases</span><br>
+                <ul>
+                    <li>History of cardiomyopathy with pregnancy; echocardiogram revealed decreased ejection fraction </li>
+                    <li>Platinum-based therapy in first line was well tolerated </li>
+                    <li>Patient achieved a partial response </li>
+                    <li>Disease progressed after 7 months of treatment</li>
+                </ul>
+            </div>
+            <div style="display: none;" class="s3p1"><span class="dkBlue">Initial diagnosis:</span><br>
+                <span class="blue">Stage IIIA tumor identified in a routine mammogram</span><br>
+                <ul>
+                    <li>Mass detected on routine annual mammogram recommended by her gynecologist </li>
+                    <li>Received MRM with AD followed by XRT </li>
+                    <li>Diagnosis:
+                        <ul class="em">
+                            <li>Tumor: 3-cm IDC, classified as T2N2M0, AJCC stage IIIA,                 5/10 LN-positive </li>
+                            <li>Endocrine status: ER-positive/PR-negative </li>
+                            <li>HER2 status: negative</li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="footnote">AC → T=doxorubicin, 
+cyclophosphamide, and paclitaxel or docetaxel; AD=axillary dissection; 
+AJCC=American Joint Committee on Cancer; ER=estrogen receptor; 
+HER2=human epidermal growth factor receptor 2; IDC=invasive ductal 
+carcinoma; LN=lymph node; mets=metastases; MRM=modified radical 
+mastectomy; PD=progressive disease; PR=progesterone receptor; 
+XRT=external radiation therapy. </div>
+            </div>
+            <div style="display: none;" class="s3p2"> <span class="blue"> Anthracycline-based adjuvant treatment</span><br>
+                <ul>
+                    <li>Adjuvant AC → T followed by tamoxifen </li>
+                    <li>Therapy was well tolerated; patient became amenorrheic during chemotherapy</li>
+                </ul>
+                <div class="footnote haterOffset"> AC  → T=doxorubicin, 
+cyclophosphamide, and paclitaxel or docetaxel; mets=metastases; 
+MRM=modified radical mastectomy;  PD=progressive disease; XRT=external 
+radiation therapy.</div>
+            </div>
+            <div style="display: none;" class="s3p3"><span class="blue">Metastatic relapse after long-term hormonal therapy</span>
+                <ul>
+                    <li>After 3 years of tamoxifen therapy, patient complained of pain; bone scan revealed metastases </li>
+                    <ul class="em">
+                        <li>Biopsy of bone metastasis confirmed ER-positive,                 HER2-negative disease</li>
+                    </ul>
+                    <li>Patient remained amenorrheic; estradiol levels confirmed  she is postmenopausal </li>
+                </ul>
+                <div class="footnote">AC → T=doxorubicin, 
+cyclophosphamide, and paclitaxel or docetaxel; ER=estrogen receptor; 
+HER2=human epidermal growth factor receptor 2; mets=metastases; 
+MRM=modified  radical mastectomy; PD=progressive disease; 
+PR=progesterone receptor; XRT=external radiation therapy.</div>
+            </div>
+            <div style="display: none;" class="s3p4"><span class="blue">Repeated progression</span><br>
+                <ul>
+                    <li> Given anastrozole, bone-modifying agent, and 
+XRT for bone metastases; pain subsided initially, but progression was 
+seen after 6 months </li>
+                    <li>The patient was treated with exemestane + everolimus </li>
+                    <li>Further progression of bone metastases occurred at 5 months; CT scan revealed new liver metastases </li>
+                    <li>Given capecitabine + ixabepilone; progressed again after 5.5 months</li>
+                </ul>
+                <div class="footnote">AC → T=doxorubicin, 
+cyclophosphamide, and paclitaxel or docetaxel; CT=computed tomography; 
+mets=metastases; MRM=modified radical mastectomy; PD=progressive 
+disease; XRT=external radiation therapy. </div>
+            </div>
+        </div>
+        <!-- MODAL CODAL --> 
+
+        <!-- ISI PAGE START -->
+        <div style="display: none;" class="isiContainer">
+            <div class="closeBtn"></div>
+            <div class="piBtn"></div>
+            <div id="ISI"><div style="display: none;" class="ftscroller_container"><div style="transform: translate3d(0px, 0px, 0px);" class="ftscroller_y ftscroller_hwaccelerated">
+                <div class="isiInner"> <strong>ABRAXANE<sup>®</sup> for 
+Injectable Suspension (paclitaxel protein-bound particles for injectable
+ suspension) (albumin-bound) is indicated for the treatment of breast 
+cancer after failure of combination chemotherapy for metastatic disease 
+or relapse within 6 months of adjuvant chemotherapy. Prior therapy 
+should have included an anthracycline unless clinically contraindicated.
+                    <div class="header">Important Safety Information</div>
+                </strong>
+                <div class="blackBox">
+                    <div class="warning"><strong>WARNING - NEUTROPENIA</strong></div>
+                    <ul style="margin-top:20px;">
+                        <li><strong>Do not administer ABRAXANE therapy 
+to patients who have baseline neutrophil counts of less than 1,500 
+cells/mm³. In order to monitor the occurrence of bone marrow 
+suppression, primarily neutropenia, which may be severe and result in 
+infection, it is recommended that frequent peripheral blood cell counts 
+be performed on all patients receiving ABRAXANE </strong></li>
+                        <li><strong>Note: An albumin form of paclitaxel 
+may substantially affect a drug's functional properties relative to 
+those of drug in solution. DO NOT SUBSTITUTE FOR OR WITH OTHER 
+PACLITAXEL FORMULATIONS</strong></li>
+                    </ul>
+                </div>
+                <div class="subheader"><strong>CONTRAINDICATIONS</strong></div>
+                <strong>Neutrophil Counts</strong>
+                <ul>
+                    <li> ABRAXANE should not be used in patients who have baseline neutrophil counts of &lt; 1,500 cells/mm³ </li>
+                </ul>
+                <strong>Hypersensitivity</strong>
+                <ul>
+                    <li>Patients who experience a severe hypersensitivity reaction to ABRAXANE should not be rechallenged with the drug</li>
+                </ul>
+                <div class="subheader"><strong>WARNINGS AND PRECAUTIONS</strong></div>
+                <strong>Hematologic Effects</strong>
+                <ul>
+                    <li> Bone marrow suppression (primarily neutropenia)
+ is dose-dependent and a dose-limiting toxicity of ABRAXANE. In a 
+clinical study, Grade 3-4 neutropenia occurred in 34% of patients with 
+metastatic breast cancer (MBC) </li>
+                    <li>Monitor for myelotoxicity by performing complete blood cell counts frequently, including prior to dosing on Day 1 for MBC </li>
+                    <li>Do not administer ABRAXANE to patients with baseline absolute neutrophil counts (ANC) of less than 1,500 cells/mm³ </li>
+                    <li>In the case of severe neutropenia (&lt;500 
+cells/mm³ for 7 days or more) during a course of ABRAXANE therapy, 
+reduce the dose of ABRAXANE in subsequent courses in patients with MBC </li>
+                    <li>In patients with MBC, resume treatment with 
+every-3-week cycles of ABRAXANE after ANC recovers to a level &gt;1,500 
+cells/mm³ and platelets recover to &gt;100,000 cells/mm³</li>
+                </ul>
+                <strong>Nervous System</strong>
+                <ul>
+                    <li> Sensory neuropathy is dose- and schedule-dependent </li>
+                    <li>The occurrence of Grade 1 or 2 sensory neuropathy does not generally require dose modification </li>
+                    <li>If ≥ Grade 3 sensory neuropathy develops, 
+treatment should be withheld until resolution to Grade 1 or 2 for MBC 
+followed by a dose reduction for all subsequent courses of ABRAXANE</li>
+                </ul>
+                <strong>Hypersensitivity</strong>
+                <ul>
+                    <li> Severe and sometimes fatal hypersensitivity reactions, including anaphylactic reactions, have been reported </li>
+                    <li>Patients who experience a severe hypersensitivity reaction to ABRAXANE should not be re-challenged with this drug</li>
+                </ul>
+                <strong>Hepatic Impairment</strong>
+                <ul>
+                    <li> Because the exposure and toxicity of paclitaxel
+ can be increased with hepatic impairment, administration of ABRAXANE in
+ patients with hepatic impairment should be performed with caution </li>
+                    <li>The starting dose should be reduced for patients with moderate or severe hepatic impairment</li>
+                </ul>
+                <strong>Albumin (Human)</strong>
+                <ul>
+                    <li> ABRAXANE contains albumin (human), a derivative of human blood</li>
+                </ul>
+                <strong>Use in Pregnancy: Pregnancy Category D</strong>
+                <ul>
+                    <li>ABRAXANE can cause fetal harm when administered to a pregnant woman </li>
+                    <li>If this drug is used during pregnancy, or if the
+ patient becomes pregnant while receiving this drug, the patient should 
+be apprised of the potential hazard to the fetus </li>
+                    <li>Women of childbearing potential should be advised to avoid becoming pregnant while receiving ABRAXANE</li>
+                </ul>
+                <strong>Use in Men</strong>
+                <ul>
+                    <li> Men should be advised not to father a child while receiving ABRAXANE </li>
+                </ul>
+                <div class="subheader"><strong>ADVERSE REACTIONS</strong></div>
+                <strong style="text-decoration:underline;">Randomized Metastatic Breast Cancer (MBC) Study</strong>
+                <ul>
+                    <li> The most common adverse reactions (≥20%) with 
+single-agent use of ABRAXANE vs. Paclitaxel injection in the MBC study 
+were alopecia (90%, 94%), neutropenia (all cases 80%,82%; severe 
+9%,22%), sensory neuropathy (any symptoms 71%, 56%; severe 10%, 2%), 
+abnormal ECG (all patients 60%, 52%; patients with normal baseline 35%, 
+30%), fatigue/asthenia (any 47%, 39%; severe 8%, 3%), myalgia/arthralgia
+ (any 44%, 49%; severe 8%, 4%), AST elevation (any 39%, 32%), alkaline 
+phosphatase elevation (any 36%, 31%), anemia (all cases 33%, 25%; severe
+ 1%, &lt;1%), nausea (any 30%, 22%; severe 3%, &lt;1%), diarrhea (any 
+27%, 15%; severe &lt;1%, 1%) and infections (24%, 20%), respectively </li>
+                    <li>Sensory neuropathy was the cause of ABRAXANE discontinuation in 7/229 (3%) patients </li>
+                    <li>Other adverse reactions of note with the use of 
+ABRAXANE vs. Paclitaxel injection included vomiting (any 18%,10%; severe
+ 4%, 1%), fluid retention (any 10%,8%; severe 0%,&lt;1%); mucositis (any
+ 7%, 6%; severe &lt;1%, 0%), hepatic dysfunction (elevations in 
+bilirubin 7%, 7%), hypersensitivity reactions (any 4%,12%; severe 0%, 
+2%), thrombocytopenia (any 2%, 3%; severe &lt;1%, &lt;1%), neutropenic 
+sepsis (&lt;1%, &lt;1%), and injection site reactions (&lt;1%, 1%), 
+respectively. Dehydration and pyrexia were also reported </li>
+                    <li>Renal dysfunction (any 11%, severe 1%) were reported in patients treated with ABRAXANE (n = 229) </li>
+                    <li>In all ABRAXANE treated patients (n=366) ocular/visual disturbances were reported (any 13%; severe 1%) </li>
+                    <li>Severe cardiovascular events possibly related to
+ single-agent ABRAXANE occurred in approximately 3% of patients and 
+included cardiac ischemia/infarction, chest pain, cardiac arrest, 
+supraventricular tachycardia, edema, thrombosis, pulmonary 
+thromboembolism, pulmonary emboli, and hypertension </li>
+                    <li>Cases of cerebrovascular attacks (strokes) and transient ischemic attacks have been reported </li>
+                </ul>
+                <strong>Post-marketing Experience With ABRAXANE and Other Paclitaxel Formulations</strong>
+                <ul>
+                    <li>Severe and sometimes fatal hypersensitivity 
+reactions have been reported with ABRAXANE. The use of ABRAXANE in 
+patients previously exhibiting hypersensitivity to paclitaxel injection 
+or to human albumin has not been studied </li>
+                    <li>There have been reports of congestive heart 
+failure and left ventricular dysfunction with ABRAXANE, primarily among 
+individuals with underlying cardiac history or prior exposure to 
+cardiotoxic drugs </li>
+                    <li>There have been reports of extravasation of 
+ABRAXANE. Given the possibility of extravasation, it is advisable to 
+monitor closely the ABRAXANE infusion site for possible infiltration 
+during drug administration</li>
+                </ul>
+                <div class="subheader"><strong>DRUG INTERACTIONS</strong></div>
+                <ul>
+                    <li> Caution should be exercised when administering 
+ABRAXANE concomitantly with medicines known to inhibit or induce either 
+CYP2C8 or CYP3A4 </li>
+                </ul>
+                <div class="subheader"><strong>USE IN SPECIFIC POPULATIONS</strong></div>
+                <strong>Nursing Mothers</strong>
+                <ul>
+                    <li> It is not known whether paclitaxel is excreted 
+in human milk. Because many drugs are excreted in human milk and because
+ of the potential for serious adverse reactions in nursing infants, a 
+decision should be made to discontinue nursing or to discontinue the 
+drug, taking into account the importance of the drug to the mother</li>
+                </ul>
+                <strong>Pediatric</strong>
+                <ul>
+                    <li> The safety and effectiveness of ABRAXANE in pediatric patients have not been evaluated </li>
+                </ul>
+                <strong>Geriatric</strong>
+                <ul>
+                    <li> No toxicities occurred notably more frequently among patients ≥65 years of age who received ABRAXANE for MBC </li>
+                </ul>
+                <strong>Renal Impairment</strong>
+                <ul>
+                    <li> The use of ABRAXANE has not been studied in patients with renal impairment</li>
+                </ul>
+                <div class="subheader"><strong>DOSAGE AND ADMINISTRATION</strong></div>
+                <ul>
+                    <li> Dose adjustment is recommended for patients 
+with moderate and severe hepatic impairment and patients who experience 
+severe neutropenia or severe sensory neuropathy during treatment with 
+ABRAXANE </li>
+                    <li> Withhold ABRAXANE if AST &gt;10 x ULN or bilirubin &gt;5 x ULN</li>
+                    <li> Dose reductions or discontinuation may be needed based on severe hematologic or neurologic toxicities</li>
+                    <li> Monitor patients closely </li>
+                </ul>
+                <strong>Please see full Prescribing Information, 
+including Boxed WARNING, CONTRAINDICATIONS, WARNINGS AND PRECAUTIONS, 
+and ADVERSE REACTIONS.</strong> </div>
+            </div><div style="height: 111px; transform: translate3d(0px, 0px, 0px);" class="ftscroller_scrollbar ftscroller_scrollbary ftscroller_hwaccelerated"><div class="ftscroller_scrollbarinner"></div></div></div></div>
+        </div>
+        <!-- ISI PAGE END --> 
+
+        <!-- PI PAGE START -->
+        <div style="display: none;" class="piContainer">
+            <div class="closeBtn"></div>
+            <div id="PI"><div style="display: none;" class="ftscroller_container"><div style="transform: translate3d(0px, 0px, 0px);" class="ftscroller_y ftscroller_hwaccelerated"> <img src="Patient%20Cases_files/Abraxane_PrescribingInformation_Page_01.png"><br>
+                <img src="Patient%20Cases_files/Abraxane_PrescribingInformation_Page_02.png"><br>
+                <img src="Patient%20Cases_files/Abraxane_PrescribingInformation_Page_03.png"><br>
+                <img src="Patient%20Cases_files/Abraxane_PrescribingInformation_Page_04.png"><br>
+                <img src="Patient%20Cases_files/Abraxane_PrescribingInformation_Page_05.png"><br>
+                <img src="Patient%20Cases_files/Abraxane_PrescribingInformation_Page_06.png"><br>
+                <img src="Patient%20Cases_files/Abraxane_PrescribingInformation_Page_07.png"><br>
+                <img src="Patient%20Cases_files/Abraxane_PrescribingInformation_Page_08.png"><br>
+                <img src="Patient%20Cases_files/Abraxane_PrescribingInformation_Page_09.png"><br>
+                <img src="Patient%20Cases_files/Abraxane_PrescribingInformation_Page_10.png"><br>
+                <img src="Patient%20Cases_files/Abraxane_PrescribingInformation_Page_11.png"><br>
+                <img src="Patient%20Cases_files/Abraxane_PrescribingInformation_Page_12.png"><br>
+                <img src="Patient%20Cases_files/Abraxane_PrescribingInformation_Page_13.png"><br>
+                <img src="Patient%20Cases_files/Abraxane_PrescribingInformation_Page_14.png"><br>
+                <img src="Patient%20Cases_files/Abraxane_PrescribingInformation_Page_15.png"><br>
+                <img src="Patient%20Cases_files/Abraxane_PrescribingInformation_Page_16.png"><br>
+                <img src="Patient%20Cases_files/Abraxane_PrescribingInformation_Page_17.png"><br>
+                <img src="Patient%20Cases_files/Abraxane_PrescribingInformation_Page_18.png"><br>
+                <img src="Patient%20Cases_files/Abraxane_PrescribingInformation_Page_19.png"><br>
+            </div><div style="height: 12px; transform: translate3d(0px, 0px, 0px);" class="ftscroller_scrollbar ftscroller_scrollbary ftscroller_hwaccelerated"><div class="ftscroller_scrollbarinner"></div></div></div></div>
+        </div>
+        <!-- PI PAGE END --> 
+
+        <!-- RISK ASSESSMENT -->
+        <div style="display: block;" class="raContainer">
+            <div class="closeBtn"> </div>
+            <div id="RA">
+                <section id="disease_chart">
+        <div class="ui-buttonset" id="radio">
+            <article class="question">Which disease factors are indicative of aggressive disease?</article>
+            <section class="row1">
+
+                <section class="factors"><span class="radioLabel" rel="div.info_modal:eq(0)">Visceral metastases</span> </section>
+                <section class="choices">
+
+                    <input class="ui-helper-hidden-accessible" id="radio1" name="visceral" type="radio"><label aria-disabled="false" role="button" class="ui-button ui-widget ui-state-default ui-button-text-only ui-corner-left" for="radio1"><span class="ui-button-text">No</span></label>
+                    <input class="ui-helper-hidden-accessible" id="radio2" name="visceral" type="radio"><label aria-disabled="false" role="button" class="ui-button ui-widget ui-state-default ui-button-text-only" for="radio2"><span class="ui-button-text">Yes</span></label>
+
+                </section>
+                <section class="patients" rel="div.overlay:eq(0)"> </section>
+            </section>
+            
+            
+            
+            <section class="row2">
+
+                <section class="factors"><span class="radioLabel" rel="div.info_modal:eq(1)" style="padding-top:5px;">Number of<br>metastatic sites</span> </section>
+                <section class="choices">
+
+                    <input class="ui-helper-hidden-accessible" id="radio3" name="sites" type="radio"><label aria-disabled="false" role="button" class="ui-button ui-widget ui-state-default ui-button-text-only" for="radio3"><span class="ui-button-text">&lt; 3</span></label>
+                    <input class="ui-helper-hidden-accessible" id="radio4" name="sites" type="radio"><label aria-disabled="false" role="button" class="ui-button ui-widget ui-state-default ui-button-text-only" for="radio4"><span class="ui-button-text">≥ 3</span></label>
+
+                </section>
+                <section class="patients" rel="div.overlay:eq(1)"> </section>
+            </section>
+ 
+
+            <section class="row3">
+
+                <section class="factors"><span class="radioLabel" rel="div.info_modal:eq(2)">Disease-free interval</span> </section>
+                <section class="choices">
+
+                   
+                    <input class="ui-helper-hidden-accessible" id="radio9" name="Disease-free" type="radio"><label aria-disabled="false" role="button" class="ui-button ui-widget ui-state-default ui-button-text-only" for="radio9"><span class="ui-button-text">&gt; 24 months</span></label>
+                    <input class="ui-helper-hidden-accessible" id="radio10" name="Disease-free" type="radio"><label aria-disabled="false" role="button" class="ui-button ui-widget ui-state-default ui-button-text-only" for="radio10"><span class="ui-button-text">≤ 24 months</span></label>
+
+
+                </section>
+                <section class="patients" rel="div.overlay:eq(3)"> </section>
+            </section>
+
+            
+            
+            <section class="row4">
+
+                <section class="factors"><span class="radioLabel" rel="div.info_modal:eq(3)" style="padding-top:5px;">Response to<br>prior therapy</span> </section>
+                <section class="choices">
+
+
+                    <input class="ui-helper-hidden-accessible" id="radio7" name="Response" type="radio"><label aria-disabled="false" role="button" class="ui-button ui-widget ui-state-default ui-button-text-only" for="radio7"><span class="ui-button-text">Yes</span></label>
+                    <input class="ui-helper-hidden-accessible" id="radio8" name="Response" type="radio"><label aria-disabled="false" role="button" class="ui-button ui-widget ui-state-default ui-button-text-only" for="radio8"><span class="ui-button-text">No</span></label>
+
+
+                </section>
+                <section class="patients" rel="div.overlay:eq(4)"> </section>
+            </section>
+            
+            
+            <section class="row5">
+
+                <section class="factors"><span class="radioLabel" rel="div.info_modal:eq(4)">Receptor status</span> </section>
+                <section class="choices">
+
+                    <input class="ui-helper-hidden-accessible" id="radio11" name="Receptor" type="radio"><label aria-disabled="false" role="button" class="ui-button ui-widget ui-state-default ui-button-text-only" for="radio11"><span class="ui-button-text">HER2/HR</span></label>
+                    <input class="ui-helper-hidden-accessible" id="radio12" name="Receptor" type="radio"><label aria-disabled="false" role="button" class="ui-button ui-widget ui-state-default ui-button-text-only" for="radio12"><span class="ui-button-text">Triple-negative</span></label>
+
+                </section>
+                <section class="patients" rel="div.overlay:eq(5)"> </section>
+
+            </section>
+            <!--- row6 -->
+             
+            
+            <section class="row3">
+
+
+                <section class="factors"><span class="radioLabel" rel="div.info_modal:eq(2)">Symptomatic</span> </section>
+                <section class="choices">
+
+                    <input class="ui-helper-hidden-accessible" id="radio5" name="Symptomatic" type="radio"><label aria-disabled="false" role="button" class="ui-button ui-widget ui-state-default ui-button-text-only" for="radio5"><span class="ui-button-text">No</span></label>
+                    <input class="ui-helper-hidden-accessible" id="radio6" name="Symptomatic" type="radio"><label aria-disabled="false" role="button" class="ui-button ui-widget ui-state-default ui-button-text-only ui-corner-right" for="radio6"><span class="ui-button-text">Yes</span></label>
+
+                </section>
+                <section class="patients" rel="div.overlay:eq(2)"> </section>
+            </section>
+
+        </div> <!-- radio -->
+        <div class="information">
+            <div class="isi-launch"></div>
+            <div class="pi-launch"></div>
+        </div>
+    </section>  
+                
+                
+                
+            </div>
+            
+            
+            <!--- END CONTENT -->
+        <!---- pop-up content --->
+        
+        
+        <!---- overlays ---->
+        <!-- PLEASE NOTE THAT THE CLOSE BUTTON IN THE OVERLAYS CALLS A FUNC THAT RESETS THE CHART BAR BY DESTROYING ALL THE HTML IN THE BAR CONTAINER -->
+        <div class="overlay" id="p1"> 
+            <div class="close"></div>
+            <div class="modal case-button" id="top" patient="1"></div>
+            <div class="modal case-button" id="middle" patient="2"></div>
+            <div class="modal case-button" id="bottom" patient="3"></div>
+            <div class=""></div>
+            <div class=""></div>
+        </div>
+        
+        <div class="overlay" id="p2">
+        <div class="modal case-button" id="top" patient="1"></div>
+            <div class="close"></div>
+            
+        </div>
+        
+        <div class="overlay" id="p3">
+        <div class="modal case-button" id="top" patient="2"></div>
+        	<div class="close"></div>
+            
+        </div>
+        
+        <div class="overlay" id="p4">
+        <div class="modal case-button" id="top" patient="3"></div>
+        	<div class="close"></div>
+            
+        </div>
+        
+        <div class="overlay" id="p5">
+        	<div class="close"></div>
+            <div class="modal case-button" id="top" patient="1"></div>
+            
+            
+        </div>
+        
+        <div class="overlay" id="p6">
+        	<div class="close"></div>
+            <div class="modal case-button" id="top" patient="1"></div>
+            <div class="modal case-button" id="middle" patient="2"></div>
+            
+        </div>
+        
+        <!-- overlay -->
+        <!--- INFO MODALS -->
+        <!-- info 1 -->
+        <div id="pop1" class="info_modal">
+            <div class="close"><img src="Patient%20Cases_files/closeBtn.png" alt="" height="60" width="60"></div>
+            <div class="right_col">
+                <div class="chartText1 bold">Visceral metastases are associated with more aggressive<br>metastatic breast cancer <span class="superscript">7,a</span></div>
+                <img class="chart1" src="Patient%20Cases_files/pop_chart1_BG.png" alt="">
+                <div class="barContainer">
+                    <div id="bar1a"></div>
+                    <div id="bar1b"></div>
+                </div>
+                <div class="foot1 footnote"><span class="superscript">a</span>
+ Univariate survival analysis from a retrospective database analysis of 
+346 patients with metastatic breast cancer after first recurrence. All 
+patients had undergone surgery for primary breast cancer and may have 
+received radiation, hormonal therapy, and/or chemotherapy for metastatic
+ disease.
+                </div>
+
+            </div>
+            <div class="left_col">
+                <div class="copy">
+                    <h1>Visceral metastases</h1>
+                    <div>
+                        <p>
+                            A retrospective database analysis found that
+ about 67%-73% of patients with metastatic breast cancer develop 
+visceral metastases.<span class="superscript">1</span> For approximately 57%-74% of patients, visceral metastases develop as the dominant site of metastases.<span class="superscript">2,3</span>
+ Further studies demonstrate that up to 85% of patients will develop 
+visceral metastases at some time in the course of their disease.<span class="superscript">1-6</span>
+                        </p>
+                        <p>
+                            Visceral metastases are associated with more
+ aggressive metastatic breast cancer compared with nonvisceral 
+metastases; patients tend to have  worse outcomes.<span class="superscript">2,3,7</span>
+                        </p>
+                    </div>
+                    <div class="footnote">
+                        <ol>
+                            <li><span>1.</span> Samiee S et al. <em>Curr Oncol</em>. 2012;19:e270-e279.</li>
+                            <li><span>2.</span> Gennari A et al. <em>Cancer</em>. 2005;104:1742-1750.</li>
+                            <li><span>3.</span> Sledge GW et al. <em>J Clin Oncol</em>. 2003;21:588-592.</li>
+                            <li><span>4.</span> Wallwiener M et al. <em>Breast Cancer Res Treat</em>. 2013;137:503-510.</li>
+                            <li><span>5.</span> Loibl S et al. <em>Breast Care (Basel)</em>. 2011;6:457-461.</li>
+                            <li><span>6.</span> Villanueva C et al. <em>Breast</em>. 2011;20:329-333.</li>
+                            <li><span>7.</span> Chang J et al. <em>Cancer</em>. 2003;97:545-553. 
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <div class="patient1-footer">
+                    <img src="Patient%20Cases_files/patient1-footer-thumb.png" alt="">
+                    <div><img src="Patient%20Cases_files/footer-text1.png" alt="" height="30" width="150"></div>
+                </div>
+                <div class="patient2-footer">
+                    <img src="Patient%20Cases_files/patient2-footer-thumb.png" alt="">
+                    <div><img src="Patient%20Cases_files/footer-text2.png" alt="" height="42" width="193"></div>
+                </div>
+                <div class="patient3-footer">
+                    <img src="Patient%20Cases_files/patient3-footer-thumb.png" alt="">
+                    <div><img src="Patient%20Cases_files/footer-text3.png" alt="" height="29" width="187"></div>
+                </div>
+            </footer>
+        </div>
+        
+        <!-- second info modal -->
+        <div id="pop2" class="info_modal">
+            <div class="close"><img src="Patient%20Cases_files/closeBtn.png" alt="" height="60" width="60"></div>
+            <div class="right_col">
+                <div class="chartText1 bold">Multiple metastatic sites are associated with a poor prognosis<span class="superscript">2,a</span></div>
+                <img class="chart2" src="Patient%20Cases_files/pop_chart2_BG.png" alt="">
+                <div class="barContainer">
+                    <div id="bar2a"></div>
+                    <div id="bar2b"></div>
+                    <div id="bar2c"></div>
+                </div>
+                <div class="foot2 footnote"><span class="superscript">a</span> Univariate survival analysis of 1430 patients from 8 consecutive prospective trials conducted between 1977<br> and 1992 of anthracycline-based first-line chemotherapy in metastatic breast cancer. </div>
+
+            </div>
+            <div class="left_col">
+                <div class="copy">
+                    <h1>Number of<br>metastatic sites</h1>
+                    <div>
+                        <p>
+                            The presence of multiple metastatic lesions 
+or sites is associated with poor prognosis in patients with metastatic 
+breast cancer.<span class="superscript">1-3</span>
+                        </p>
+                    </div>
+                    <div class="footnote">
+                        <ol>
+                            <li><span>1.</span> Jung SY et al. <em>Cancer Causes Control</em>. 2012;23:103-112.</li>
+                            <li><span>2.</span> Pierga JY et al. <em>Ann Oncol</em>. 2001;12:231-237.</li>
+                            <li><span>3.</span> Sledge GW et al. <em>J Clin Oncol</em>. 2003;21:588-592.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <div class="patient1-footer">
+                    <img src="Patient%20Cases_files/patient1-footer-thumb.png" alt="">
+                    <div><img src="Patient%20Cases_files/footer-text1.png" alt="" height="30" width="150"></div>
+                </div>
+            </footer>
+        </div>
+        
+        <!-- third info modal -->
+        
+        <div id="pop3" class="info_modal">
+            <div class="close"><img src="Patient%20Cases_files/closeBtn.png" alt="" height="60" width="60"></div>
+            <div class="right_col">
+                <div class="chartText3 bold">Short disease-free interval is associated with a poor prognosis<span class="superscript">1,a,b</span>
+                </div>
+                <img class="chart3" src="Patient%20Cases_files/pop_chart3.png" height="254" width="492">
+                <div class="foot3 footnote">  
+                    <div style="text-indent:1px;">Reproduced with permission from [Chang et al. <em>Cancer</em>. 2003;97:545-553].
+                    </div>
+                    <div style="text-indent:-5px;"><span class="superscript">a</span>
+ Multivariate survival analysis from a retrospective database of 346 
+patients with metastatic breast cancer after first&nbsp;recurrence.</div>
+                    <div style="text-indent:-5px;"><span class="superscript">b</span>
+ Patients with lymph node–positive breast carcinoma who had developed 
+distant, recurrent disease and had undergone radical/modified radical 
+mastectomy or lumpectomy and axillary lymph node dissection with 
+postoperative radiation therapy. Patients may have received radiation, 
+hormonal therapy, and/or chemotherapy for metastatic disease.</div>
+                </div>
+                <div class="chartText3b bold">
+                    <p>
+                        A longer disease-free interval is associated with a better outcome<span class="superscript">1,c</span>
+                    </p>
+                    <img src="Patient%20Cases_files/pop_chart3b.png" height="102" width="332">
+                    <div class="footnote">CI=confidence interval.
+                        <p style="text-indent:-5px;"><span class="superscript">c</span>
+ Univariate survival analysis from a retrospective database of 346 
+patients with metastatic breast cancer after first recurrence. All 
+patients had undergone surgery for primary breast cancer and may have 
+received radiation, hormonal therapy, and/or chemotherapy for metastatic
+ disease.
+                        </p>
+                    </div>
+                    
+
+                </div>
+            </div>
+            <div class="left_col">
+                <div class="copy">
+                    <h1>Disease-free interval</h1>
+                    <div>
+                        <p>A short disease-free interval <span class="nobreak">(≤12–24</span> months) is independently associated with a worse outcome in patients with metastatic breast cancer.<span class="superscript">1–3</span></p>
+                    </div>
+                    <div class="footnote">
+                        <ol>
+                            <li><span>1.</span> Chang J et al. <em>Cancer</em>. 2003;97:545-553.</li>
+                            <li><span>2.</span> Pierga JY et al. <em>Ann Oncol</em>. 2001;12:231-237.</li>
+                            <li><span>3.</span> Sledge GW et al. <em>J Clin Oncol</em>. 2003;21:588-592.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <div class="patient1-footer">
+                    <img src="Patient%20Cases_files/patient1-footer-thumb.png" alt="">
+                    <div><img src="Patient%20Cases_files/footer-text1.png" alt="" height="30" width="150"></div>
+                </div>
+            </footer>
+        </div>
+        
+        <!-- FOURTH info modal -->
+        <div id="pop4" class="info_modal">
+            <div class="close"><img src="Patient%20Cases_files/closeBtn.png" alt="" height="60" width="60"></div>
+            <div class="right_col">
+                <img src="Patient%20Cases_files/pop_chart5.png">
+            </div>
+            <div class="left_col">
+                <div class="copy">
+                    <h1>Response to<br>prior therapy</h1>
+                    <div>
+                        <p>Achieving a response to first-line 
+chemotherapy for patients with metastatic breast cancer is predictive of
+ a better long-term outcome.<span class="superscript">1-3</span></p>
+                        <p>For patients with metastatic breast cancer who received first-line chemotherapy,  a worse outcome is predicted:
+                            </p><ul>
+                                <li>• By failing to achieve any tumor response (complete or partial response)<span class="superscript">1</span></li>
+                                <li>• By achieving an early response <span class="nobreak">(≤4&nbsp;months)</span> but rapidly relapsing within 8 months<span class="superscript">1</span></li>
+                                <li>• If disease progression is observed at  the first tumor evaluation<span class="superscript">3</span></li>
+                            </ul>
+                        <p></p>
+                    </div>
+                    <div class="footnote">
+                        <ol>
+                            <li><span>1.</span> Chang J et al. <em>Cancer</em>. 2003;97:545-553.</li>
+                            <li><span>2.</span> Pierga JY et al. <em>Ann Oncol</em>. 2001;12:231-237.</li>
+                            <li><span>3.</span> Sledge GW et al. <em>J Clin Oncol</em>. 2003;21:588-592.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <footer>
+             <div class="patient3-footer">
+                <img src="Patient%20Cases_files/patient3-footer-thumb.png" alt="">
+                <div><img src="Patient%20Cases_files/footer-text3.png" alt="" height="29" width="187"></div>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- FIFTH info modal -->
+    <div id="pop5" class="info_modal">
+        <div class="close"><img src="Patient%20Cases_files/closeBtn.png" alt="" height="60" width="60"></div>
+        <div class="right_col">
+            <img src="Patient%20Cases_files/pop_chart6.png">
+        </div>
+        <div class="left_col">
+            <div class="copy">
+                <h1>Receptor status:<br>Triple-negative breast<br>cancer subtype<span class="superscript">*</span></h1>
+                <div>
+                    <p>Tumor receptor expression has been demonstrated 
+to correlate with outcomes. Compared with other types of breast cancer, 
+ie, ER-, PR-, or HER2-positive, triple-negative breast cancers have a 
+more aggressive clinical course with an increased likelihood of distant 
+recurrence and death. Patients with triple-negative breast cancer have a
+ worse outcome compared with patients diagnosed with the other subtypes.<span class="superscript">1</span>
+
+                        </p><ul>
+                            <li>• Approximately 12%–17% of patients diagnosed with breast cancer are also diagnosed with triple-negative disease <span class="superscript">2</span></li>
+                            <li>• Studies report that about 7%-27% of patients with metastatic breast cancer have triple-negative breast cancer <span class="superscript">3-5</span></li>
+                        </ul>
+                    <p></p>
+                </div>
+                <div class="footnote">
+                    <div>
+                        ER=estrogen receptor; HER2=human epidermal growth factor receptor 2;
+                        PR=progesterone receptor.<br>* Information on 
+the number of patients in the CA012 study with triple-negative breast 
+cancer is not available, as it was not collected.
+                    </div>
+                    <ol>
+                        <li><span>1.</span> Dent R et al. <em>Clin Cancer Res</em>. 2007;13:4429-4434.</li>
+                        <li><span>2.</span> Foulkes WD et al. <em>N Engl J Med</em>. 2010;363:1938-1948.</li>
+                        <li><span>3.</span> Thientosapol ES et al. <em>Intern Med J</em>. 2013;43(8):883-888.</li>
+                        <li><span>4.</span> Villanueva C et al. <em>Breast</em>. 2011;20:329-333.</li>
+                        <li><span>5.</span> Loibl S et al. <em>Breast Care (Basel)</em>. 2011;6:457-461.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="patient1-footer">
+                <img src="Patient%20Cases_files/patient1-footer-thumb.png" alt="">
+                <div><img src="Patient%20Cases_files/footer-text1.png" alt="" height="30" width="150"></div>
+            </div>
+            <div class="patient2-footer">
+                <img src="Patient%20Cases_files/patient2-footer-thumb.png" alt="">
+                <div><img src="Patient%20Cases_files/footer-text2.png" alt="" height="42" width="193"></div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- SIXTH MODAL -->
+    <div id="pop6" class="info_modal">
+            <div class="close"><img src="Patient%20Cases_files/closeBtn.png" alt="" height="60" width="60"></div>
+            <div class="right_col">
+                <img src="Patient%20Cases_files/pop_chart3.png">
+            </div>
+            <div class="left_col">
+                <div class="copy">
+                    <h1>Symptomatic</h1>
+                    <div>
+                        <p>Patients with metastatic breast cancer often experience symptoms due to their disease.</p>
+                        
+                        <p>The severity of symptoms has been shown to affect performance status  (eg, ECOG or Karnofsky scores).<span class="superscript">1</span></p>
+                        <ul>
+                            <li>• In patients with metastatic breast cancer, a poor performance status score increases the risk of death<span class="superscript">2-4</span></li>
+                            
+                        </ul>
+                        
+                    </div>
+                    <div class="footnote">
+                        <ol>
+                            <li><span>1.</span> Oken M et al. <em>Am J Clin Oncol</em>. 1982;5:649-655. </li>
+                            <li><span>2.</span> Niikura N et al. <em>Oncologist</em>. 2011;16:155-164.</li>
+                            <li><span>3.</span> Pierga JY et al. <em>Ann Oncol</em>. 2001;12:231-237.</li>
+                            <li><span>4.</span> Gennari A et al. <em>Cancer</em>. 2005;104:1742-1750.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <div class="patient1-footer">
+                    <img src="Patient%20Cases_files/patient1-footer-thumb.png" alt="">
+                    <div><img src="Patient%20Cases_files/footer-text1.png" alt="" height="30" width="150"></div>
+                </div>
+            </footer>
+        </div>
+    
+    <!--- END Info Modals -->
+</div>
+
+<!-- RISK ASSESSMENT END --> 
+</div>
+<script type="text/javascript" src="Patient%20Cases_files/retina.js"></script>
+
+<script type="text/javascript">
+$(function() {
+			// positions for each overlay
+			//right side 'patient' pop ups
+            var positions = [
+            [215, 329],
+            [290, 329],
+            [365, 329],
+            [440, 329],
+            [515, 329],
+            [590, 329]
+            
+            ];
+			//left side 'info' pop ups
+            var info_positions = [
+            [60, 15],
+            [60, 15],
+            [60, 15],
+            [60, 15],
+            [60, 15],
+            [60, 15]
+            ];
+            
+				// setup triggers as IMG tags for the 'patient' pop ups
+				$("section[rel]").each(function(i) {
+                    
+					$(this).overlay({
+                       
+						// common configuration for each overlay
+						// only one modal at any time
+						// click off of modal to close
+						// also will close by hitting escape by default
+						oneInstance: true,
+						closeOnClick: true,
+                       
+						// setup custom finish position
+						top: positions[i][0],
+						left: positions[i][1],
+						
+						// mask layer that allows for clicking off to close
+						// no color 
+						mask: {
+							maskId: "defaultMask" ,
+							color: null ,
+							zIndex: 9001
+						},
+						// pop out overlay from click point
+						effect: "apple",
+						zIndex: 9100
+					});
+				});
+				// setup triggers of the 'info' pop ups
+				$("section.factors span[rel]").each(function(i) {
+                    
+					$(this).overlay({
+                       
+						// common configuration for each overlay
+						oneInstance: true,
+						closeOnClick: true,
+                       
+						// setup custom finish position
+						top: info_positions[i][0],
+						left: info_positions[i][1],
+						
+						// mask layer that allows for clicking off to close
+						// no color
+						mask: {
+							maskId: "defaultMask" ,
+							color: null ,
+							zIndex: 9000
+						},
+                        onLoad: function(){
+                            triggerRef = this.getTrigger();//IDENTIFY THE TRIGGERING OBJECT
+                            startChart(triggerRef);//SEND THE OBJECT TO THE FUCNTION THAT WILL TRIGGER THE CHART ANIMATION
+                        },
+						// pop out overlay from click point
+						effect: "apple",
+						zIndex: 9100
+					});
+				});
+			});
+/** choices section - styling of radio button elements as boolean tabs **/
+$( "#radio" ).buttonset();
+
+
+			//prevent pulling iPad browser window with swipes
+			document.body.addEventListener('touchmove', function(event) {
+				event.preventDefault();
+			}, false); 
+            function startChart(aThing){// FUNCTION THAT STARTS THE CHART ANIMATION
+                relString = $(aThing).attr('rel');//GRAB THE IDENTIFYING INFORMATION FROM THE REL ATTRIBUTE
+                relString = relString.replace(/\D/g,'');//STRIP THE CHARACTERS COMMON TO ALL THE TRIGGER OBJECTS USING REGEX
+                if (relString == 0) {
+                   $('#bar1a').jqbar({ label: 'Nonvisceral', value: 23.2, barColor: '#97999d',barWidth: 54, barLength: 1600});
+                $('#bar1b').jqbar({ label: 'Visceral', value: 10.9, barColor: '#0c5fa7',barWidth: 54, barLength: 1600}); 
+            } else if(relString == 1){
+                $('#bar2a').jqbar({value: 19.3, barColor: '#0c5fa7',barWidth: 43, barLength: 1000});
+                $('#bar2b').jqbar({value: 24.5, barColor: '#505354',barWidth: 43, barLength: 1000});
+                $('#bar2c').jqbar({value: 31.3, barColor: '#97999d',barWidth: 43, barLength: 1000});
+                
+            };
+                
+                
+
+                console.log(relString);
+            }
+
+            </script>
+        
+        
+&gt;&gt;</body></html>
